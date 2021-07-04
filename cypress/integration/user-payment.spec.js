@@ -59,12 +59,6 @@ describe('Add, Remove, Set default Payment card', function () {
 
         // Add First Card
         cy.get(ObjectPayment.addCardButton).click()
-        // cy.window().should('have.property', 'CKOConfig')
-        // cy.window()
-        // cy.log('CKOConfig')
-        // cy.intercept("GET", '' + Cypress.env('baseUrlapi') + ObjectAPIEndPoint.apiPaymentToken).as('paymentToken')
-        // cy.wait('@paymentToken').its('response.statusCode').should('eq', 200)
-        cy.wait(5000)
         cy.get(ObjectPayment.cardNumber).type(TESTDATA.cardDetails.number)
         cy.log("Add card Expiry, month and year")
         cy.get(ObjectPayment.cardExpiry).type(TESTDATA.cardDetails.expiry)
@@ -73,7 +67,6 @@ describe('Add, Remove, Set default Payment card', function () {
         // cy.server()
         cy.intercept("POST", '' + Cypress.env('baseUrlapi') + ObjectAPIEndPoint.apiAddCard).as('addcard')
         cy.get(ObjectPayment.saveCard).click()
-        cy.wait(2000)
         cy.wait('@addcard').its('response.statusCode').should('eq', 200)
         cy.reload()
         cy.get(ObjectPayment.cardIcon).should('be.visible')
@@ -82,9 +75,6 @@ describe('Add, Remove, Set default Payment card', function () {
         // Add Second Card
         cy.log("Add another card")
         cy.get(ObjectPayment.addCardButton).click()
-        // cy.window().should('have.property', 'CKOConfig')
-        // cy.window()
-        cy.wait(5000)
         cy.log('CKOConfig')
         cy.get(ObjectPayment.cardNumber).type(TESTDATA.cardDetails1.number)
         cy.log("Add card Expiry, month and year")
@@ -93,7 +83,6 @@ describe('Add, Remove, Set default Payment card', function () {
         cy.get(ObjectPayment.cardCVV).type(TESTDATA.cardDetails1.cvv)
         cy.log("Assert Save Card is clickable and then click")
         cy.get(ObjectPayment.saveCard).click()
-        cy.wait(2000)
         cy.wait('@addcard').its('response.statusCode').should('eq', 200)
         // XHR Response Verification
         cy.intercept("GET", '' + Cypress.env('baseUrlapi') + ObjectAPIEndPoint.apiUserCards, (req) => {
