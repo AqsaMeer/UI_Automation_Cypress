@@ -1,0 +1,17 @@
+{
+    "validLoginCredentials": {
+        "email": "test@test.com",
+        "password": "123123",
+        "updatedPassword": "1231235"
+    },
+    "invalidLoginCredentials": {
+        "wrongEmail": "IOTN@turnlunchon.com"
+    },
+    "signup": {
+        "companyName": "Test_Company",
+        "companyId": "11112222",
+        "userArea": "test area",
+        "areaId": "9233"
+    }
+    
+}
