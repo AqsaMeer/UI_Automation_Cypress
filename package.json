@@ -1,0 +1,23 @@
+{
+  "name": "cypresslunchon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cypress/skip-test": "^2.5.0",
+    "cypress": "7.4.0",
+    "cypress-wait-until": "^1.7.1",
+    "cypress-mochawesome-reporter": "^2.0.1",
+    "cypress-xpath": "1.6.0"
+  },
+  "dependencies": {
+    "@slack/webhook": "^6.0.0",
+    "faker": "^5.1.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.28",
+    "mysql": "^2.18.1"
+  }
+}
